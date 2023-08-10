@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int get_divisors_sum(int num) {
+    int sum = 0;
+    for (int i = 1; i < num; i++) {
+        if (num % i == 0) {
+            sum += i;
+        }
+    }
+    return sum;
+}
+
+int is_perfect_number(int num) {
+    return num == get_divisors_sum(num);
+}
+
+int main() {
+    int n;
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+    
+    printf("The first %d perfect numbers are:\n", n);
+    
+    int count = 0;
+    int num = 1;
+    while (count < n) {
+        if (is_perfect_number(num)) {
+            printf("%d ", num);
+            count++;
+        }
+        num++;
+    }
+    
+    return 0;
+}
+
+o/p
+Enter the value of n: 3
+The first 3 perfect numbers are:
+6 28 496
