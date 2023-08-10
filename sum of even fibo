@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int even_fibonacci_sum(int n) {
+    if (n <= 1)
+        return 0;
+
+    int fib_sum = 0;
+    int fib_prev = 1;
+    int fib_curr = 2;
+
+    while (fib_curr <= n) {
+        if (fib_curr % 2 == 0)
+            fib_sum += fib_curr;
+        int temp = fib_curr;
+        fib_curr = fib_prev + fib_curr;
+        fib_prev = temp;
+    }
+
+    return fib_sum;
+}
+
+int main() {
+    int n;
+    printf("Enter the value of N: ");
+    scanf("%d", &n);
+
+    int result = even_fibonacci_sum(n);
+    printf("The sum of even Fibonacci numbers up to %d is: %d\n", n, result);
+
+    return 0;
+}
+
+o/p
+Enter the value of N: 5
+The sum of even Fibonacci numbers up to 5 is: 2
